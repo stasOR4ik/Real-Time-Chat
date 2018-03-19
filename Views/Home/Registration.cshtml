@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Registration";
+}
+@{ if (ViewData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @(ViewData["ErrorMessage"])
+        </div>
+    }
+}
+<form method="post">
+    <label> Введите логин:</label><br />
+    <input type="text" name="login" /><br /><br />
+    <label>Введите пароль:</label><br />
+    <input type="text" name="password" /><br /><br />
+    <label>Повторите пароль:</label><br />
+    <input type="text" name="repeatPassword" /><br /><br />
+    <input type="submit" value="Зарегистрироваться" />
+</form>

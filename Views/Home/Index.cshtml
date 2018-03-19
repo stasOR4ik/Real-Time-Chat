@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Chat</title>
+</head>
+<body>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <div id="header"></div><br />
+
+    <div id="inputForm">
+        <input type="text" id="message" />
+        <input type="button" id="sendBtn" value="Отправить" />
+    </div>
+    <div id="chatroom"></div>
+
+    <script src="js/signalr-client-1.0.0-alpha2-final.min.js"></script>
+    <script>
+        let hubUrl = 'http://localhost:60239/chat';
+        let httpConnection = new signalR.HttpConnection(hubUrl);
+        let hubConnection = new signalR.HubConnection(httpConnection);
+        let userName = '@(ViewData["Message"])';
+        // получение сообщения от сервера
+        hubConnection.on('Send', function (message, userName) {
+
+            // создаем элемент <b> для имени пользователя
+            let userNameElem = document.createElement("b");
+            var Time = new Date();
+            var Month = Time.getMonth();
+            var Day = Time.getDate();
+            var Hours = Time.getHours();
+            var Minutes = Time.getMinutes();
+            switch (Month) {
+                case 0: fMonth = "Jan"; break;
+                case 1: fMonth = "Feb"; break;
+                case 2: fMonth = "Mar"; break;
+                case 3: fMonth = "Apr"; break;
+                case 4: fMonth = "May"; break;
+                case 5: fMonth = "Jun"; break;
+                case 6: fMonth = "Jul"; break;
+                case 7: fMonth = "Aug"; break;
+                case 8: fMonth = "Sept"; break;
+                case 9: fMonth = "Oct"; break;
+                case 10: fMonth = "Nov"; break;
+                case 11: fMonth = "Dec"; break;
+            }
+            if (Minutes < 10) {
+                userNameElem.appendChild(document.createTextNode('[' + Day + ' ' + fMonth + ' ' + Hours + ':0' + Minutes + '] ' + userName + ': '));
+            }
+            else
+                userNameElem.appendChild(document.createTextNode('[' + Day + ' ' + fMonth + ' ' + Hours + ':' + Minutes + '] ' + userName + ': '));
+            // создает элемент <p> для сообщения пользователя
+            let elem = document.createElement("p");
+            elem.appendChild(userNameElem);
+            elem.appendChild(document.createTextNode(message));
+
+            var firstElem = document.getElementById("chatroom").firstChild;
+            document.getElementById("chatroom").insertBefore(elem, firstElem);
+
+        });
+
+        // отправка сообщения на сервер
+        document.getElementById("sendBtn").addEventListener("click", function (e) {
+            let message = document.getElementById("message").value;
+            hubConnection.invoke('Send', message, userName);
+            hubConnection.invoke('Save', message, userName);
+        });
+
+        hubConnection.start();
+    </script>
+</body>
+</html>
