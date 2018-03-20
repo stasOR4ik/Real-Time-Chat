@@ -38,9 +38,9 @@ namespace Chat.Controllers
         [HttpPost]
         public IActionResult Registration(string login, string password, string repeatPassword)
         {
-            if (login == null)
+            if (login == null || (login).Length > 20 )
             {
-                ViewData["ErrorMessage"] = "Имя пользователя должно состоять минимум из 1 символа";
+                ViewData["ErrorMessage"] = "Login must contain 1-20 character(s)";
                 return View("Registration");
             }
             User user = new User
@@ -52,7 +52,7 @@ namespace Chat.Controllers
             ViewData["Message"] = login;
             if (findUser != null)
             {
-                ViewData["ErrorMessage"] = "Пользователь с таким ником уже существует";
+                ViewData["ErrorMessage"] = "User with such login already exists";
                 return View("Registration");
             }
             else
@@ -66,7 +66,7 @@ namespace Chat.Controllers
                 }
                 else
                 {
-                    ViewData["ErrorMessage"] = "Пароль должен содержать минимум 1 символ и совпадать с его повторением";
+                    ViewData["ErrorMessage"] = "The password must contain at least 1 simbol and coincide with its repetition";
                     return View("Registration");
                 }
             }
@@ -90,13 +90,13 @@ namespace Chat.Controllers
                 }
                 else
                 {
-                    ViewData["ErrorMessage"] = "Введён неверный пароль";
+                    ViewData["ErrorMessage"] = "Incorrect password";
                     return View("Login");
                 }
             }
             else
             {
-                ViewData["ErrorMessage"] = "Введён несуществующий логин";
+                ViewData["ErrorMessage"] = "Non-existent login";
                 return View("Login");
             }
         }

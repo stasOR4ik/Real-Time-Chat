@@ -10,12 +10,17 @@ namespace Chat.Models
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Message> Messages { get; set; }
-        public UserContext(DbContextOptions<UserContext> options)
-        : base(options)
+        //public UserContext(DbContextOptions<UserContext> options)
+        //: base(options)
+        //{
+        //}
+
+        public UserContext()
         {
         }
 
-        public UserContext()
+        public UserContext(DbContextOptions options)
+        : base(options)
         {
         }
     }

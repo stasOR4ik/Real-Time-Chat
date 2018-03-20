@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Chat.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Chat
 {
@@ -30,6 +31,7 @@ namespace Chat
                 options.UseSqlServer(connection));
             services.AddMvc();
             services.AddSignalR();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

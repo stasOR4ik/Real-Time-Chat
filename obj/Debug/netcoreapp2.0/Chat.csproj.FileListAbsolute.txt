@@ -8,3 +8,14 @@ E:\Programs\WebApplication2\Chat\obj\Debug\netcoreapp2.0\Chat.AssemblyInfoInputs
 E:\Programs\WebApplication2\Chat\obj\Debug\netcoreapp2.0\Chat.AssemblyInfo.cs
 E:\Programs\WebApplication2\Chat\obj\Debug\netcoreapp2.0\Chat.dll
 E:\Programs\WebApplication2\Chat\obj\Debug\netcoreapp2.0\Chat.pdb
+E:\Programs\Real-Time Chat\Real-Time-Chat-master\bin\Debug\netcoreapp2.0\Chat.deps.json
+E:\Programs\Real-Time Chat\Real-Time-Chat-master\bin\Debug\netcoreapp2.0\Chat.runtimeconfig.json
+E:\Programs\Real-Time Chat\Real-Time-Chat-master\bin\Debug\netcoreapp2.0\Chat.runtimeconfig.dev.json
+E:\Programs\Real-Time Chat\Real-Time-Chat-master\bin\Debug\netcoreapp2.0\Chat.dll
+E:\Programs\Real-Time Chat\Real-Time-Chat-master\bin\Debug\netcoreapp2.0\Chat.pdb
+E:\Programs\Real-Time Chat\Real-Time-Chat-master\obj\Debug\netcoreapp2.0\Chat.csprojResolveAssemblyReference.cache
+E:\Programs\Real-Time Chat\Real-Time-Chat-master\obj\Debug\netcoreapp2.0\Chat.csproj.CoreCompileInputs.cache
+E:\Programs\Real-Time Chat\Real-Time-Chat-master\obj\Debug\netcoreapp2.0\Chat.AssemblyInfoInputs.cache
+E:\Programs\Real-Time Chat\Real-Time-Chat-master\obj\Debug\netcoreapp2.0\Chat.AssemblyInfo.cs
+E:\Programs\Real-Time Chat\Real-Time-Chat-master\obj\Debug\netcoreapp2.0\Chat.dll
+E:\Programs\Real-Time Chat\Real-Time-Chat-master\obj\Debug\netcoreapp2.0\Chat.pdb

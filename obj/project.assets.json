@@ -12981,11 +12981,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Programs\\WebApplication2\\Chat\\Chat.csproj",
+      "projectUniqueName": "E:\\Programs\\Real-Time Chat\\Real-Time-Chat-master\\Chat.csproj",
       "projectName": "Chat",
-      "projectPath": "E:\\Programs\\WebApplication2\\Chat\\Chat.csproj",
+      "projectPath": "E:\\Programs\\Real-Time Chat\\Real-Time-Chat-master\\Chat.csproj",
       "packagesPath": "C:\\Users\\Stas\\.nuget\\packages\\",
-      "outputPath": "E:\\Programs\\WebApplication2\\Chat\\obj\\",
+      "outputPath": "E:\\Programs\\Real-Time Chat\\Real-Time-Chat-master\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",

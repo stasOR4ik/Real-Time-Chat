@@ -14,11 +14,13 @@ namespace Chat
             await Clients.All.InvokeAsync("Send", message, userName);
         }
 
-        public void Save(string message, string userName)
+        public async Task Save(string message, string userName)
         {
-            var context = new UserContext();
-            context.Messages.Add(new Message(message, userName));
-            context.SaveChanges();
+            using (var context = new UserContext())
+            {
+                context.Messages.Add(new Message(message, userName));
+                await context.SaveChangesAsync();
+            }
         }
     }
 }
